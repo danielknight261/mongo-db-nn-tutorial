@@ -12,7 +12,7 @@ connectToDb(() => {
         app.listen(3000, () => {
             console.log('app listening on port 3000')
         })
-        db =getDb()
+        db = getDb()
     }
 })
 
@@ -20,5 +20,9 @@ connectToDb(() => {
 
 //routes handler to /books
 app.get('/books', (req, res) => {
+
+    db.collection('books')
+    .find() // returns cursor toArray forEach 
+
     res.json({mssg: "welcome to the api"})
 })
